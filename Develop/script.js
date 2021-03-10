@@ -1,44 +1,43 @@
-// Schedule Array containing times 
+// Schedule Array containing time options 
 
 var schedule = [
   {
     hour: '9';,
-    meridiem: 'am';
+    meridiem: 'am',
   };
   {
     hour: '10';,
-    meridiem: 'am';
+    meridiem: 'am',
   };
   {
     hour: '11';,
-    meridiem: 'am';
-  }
+    meridiem: 'am',
+  };
   {
     hour: '12';,
-    meridiem: 'pm';
-  }
+    meridiem: 'pm',
+  };
   {
     hour: '1';,
-    meridiem: 'am';
-  }
+    meridiem: 'pm',
+  };
   {
     hour: '2';,
-    meridiem: 'pm';
-  }
+    meridiem: 'pm',
+  };
   {
     hour: '3';,
-    meridiem: 'pm';
-  }
+    meridiem: 'pm',
+  };
   {
     hour: '4';,
-    meridiem: 'pm';
-  }
+    meridiem: 'pm',
+  };
   {
     hour: '5';,
-    meridiem: 'pm';
-  }
+    meridiem: 'pm',
+  };
 ];
-
 
 
 // Current Date at top of page 
