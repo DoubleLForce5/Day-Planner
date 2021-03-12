@@ -133,15 +133,16 @@ $('.save-button').on('click', function(event){
     event.preventDefault(); 
     // define user input 
     var userInput = $('input[name="planner-input"]');
-    console.log(userInput)
+    // var selectInput = document.querySelector('input').value; 
+    // console.log(userInput)
     // logic that needs to run when event listener is triggered
     // logic is: take value from input and set item to local storage 
     console.log('Planner-input: ', userInput.val());
-    localStorage.setItem('userInfo' , JSON.stringify(userInput.val()));
     // obj. to string 
-
+    localStorage.setItem('userInfo' , JSON.stringify(userInput.val()));
     // persist user input 
     localStorage.getItem('userInfo' , userInput);
+    // string to object 
   // traverse dom and access input value?
     // event.target;
 });
