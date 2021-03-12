@@ -124,7 +124,8 @@ $('.save-button').on('click', function(event){
     // logic is: take value from input and set item to local storage 
     // console.log('Planner-input: ', userInput.val());
     // obj. to string 
-    localStorage.setItem('userInfo' , JSON.stringify(userInput));
+    // localStorage.setItem('userInfo' , JSON.stringify(userInput));
+    localStorage.setItem('user-input- ', JSON.stringify(userInput));
     // // persist user input 
     // localStorage.getItem('userInfo' , userInput);
     // string to object 
