@@ -66,7 +66,7 @@ for (var i = 0; i < schedule.length; i++) {
 
   // Add input attributes 
   textAreaEl.attr('type', 'text')
-  textAreaEl.attr('id', 'user-input')
+  textAreaEl.attr('id', 'user-input-' + i)
   textAreaEl.attr('name', 'planner-input')
 
   // Add CSS class 
@@ -113,38 +113,24 @@ for (var i = 0; i < schedule.length; i++) {
 
 
 // On click, text in the textarea is saved to local storage and persist on the page despite refresh 
-
-// function to save text 
-// function saveText(event){
-//   // prevent default used bc i wrapped everything in a form tag 
-//   event.preventDefault(); 
-//   // logic that needs to run when event listener is triggered
-
-//   // reference to the object on which the event was dispatched
-//   // this event is dispatched to the text area 
-//   event.target
-
-// };
-
-
-
 $('.save-button').on('click', function(event){
     // prevent default used bc i wrapped everything in a form tag 
     event.preventDefault(); 
     // define user input 
-    var userInput = $('input[name="planner-input"]');
-    // var selectInput = document.querySelector('input').value; 
-    // console.log(userInput)
+    console.log(event.currentTarget.parentElement.childNodes[1].value)
+    var userInput = event.currentTarget.parentElement.childNodes[1].value;
+    console.log('userInfo' , userInput)
     // logic that needs to run when event listener is triggered
     // logic is: take value from input and set item to local storage 
-    console.log('Planner-input: ', userInput.val());
+    // console.log('Planner-input: ', userInput.val());
     // obj. to string 
-    localStorage.setItem('userInfo' , JSON.stringify(userInput.val()));
-    // persist user input 
-    localStorage.getItem('userInfo' , userInput);
+    localStorage.setItem('userInfo' , JSON.stringify(userInput));
+    // // persist user input 
+    // localStorage.getItem('userInfo' , userInput);
     // string to object 
-  // traverse dom and access input value?
-    // event.target;
+    // for (j = 0; j < schedule.length; j++) {
+    //   localStorage.setItem('userInfo' , JSON.stringify(userInput));
+    // };
 });
 
 
