@@ -7,39 +7,39 @@ $("#currentDay").text(CurrentDate.format("dddd MMMM Do, YYYY"));
 var schedule = [
   {
     hour: '9am',
-    meridiem: 'am',
+    time: 09,
   },
   {
     hour: '10am',
-    meridiem: 'am',
+    time: 10,
   },
   {
     hour: '11am',
-    meridiem: 'am',
+    time: 11,
   },
   {
     hour: '12pm',
-    meridiem: 'pm',
+    time: 12,
   },
   {
     hour: '1pm',
-    meridiem: 'pm',
+    time: 13,
   },
   {
     hour: '2pm',
-    meridiem: 'pm',
+    time: 14,
   },
   {
     hour: '3pm',
-    meridiem: 'pm',
+    time: 15,
   },
   {
     hour: '4pm',
-    meridiem: 'pm',
+    time: 16,
   },
   {
     hour: '5pm',
-    meridiem: 'pm',
+    time: 17,
   }
 ];
 
@@ -56,7 +56,7 @@ for (var i = 0; i < schedule.length; i++) {
   var formEl = $('<form>');
   var timeEl = $('<div>');
   var textBlockEl = $('<div>');
-  var textAreaEl = $('<Textarea>');
+  var textAreaEl = $('<input>');
   var saveBtnEl = $('<button>');
 
   // Add CSS attributes 
@@ -64,15 +64,20 @@ for (var i = 0; i < schedule.length; i++) {
   timeEl.attr('class', 'hour');
   saveBtnEl.attr('class', 'saveBtn');
 
+  // Add input attributes 
+  textAreaEl.attr('type', 'text')
+  textAreaEl.attr('id', 'user-input')
+  textAreaEl.attr('name', 'planner-input')
+
   // Add CSS class 
   formEl.addClass('change');
-  timeEl.addClass('col-2');
-  textAreaEl.addClass('col-8');
-  saveBtnEl.addClass('col-2');
+  timeEl.addClass('col-2 change-2');
+  textAreaEl.addClass('col-8 form-input');
+  saveBtnEl.addClass('col-2 save-button');
 
   // write hour to timeEl 
   timeEl.text(schedule[i].hour);
-  console.log(schedule[i].hour);
+  // console.log(schedule[i].hour);
 
 
   // Append time, text, and save button elements to forum 
@@ -84,21 +89,67 @@ for (var i = 0; i < schedule.length; i++) {
   containerEl.append(formEl);
 
   // color code blocks based on time being past, present, or in the future 
-  var currentTime = moment().format("hh");
+  // var currentTime = moment().format("hh");
 
-  console.log(schedule[i].hour);
+  // $(document).ready(function() {
+  //   $.fn.changeColor = function () {
+  //     document.getElementById('col-8').innerHTML = "hello";
+  //     console.log( $.fn.changeColor)
+  //   }
+  // });
 
-  $('.change').each(function() {
-    console.log(schedule[i].hour);
-    if (parseInt($(schedule[i].hour).text()) < currentTime) {
-      formEl.addClass('past');
-    } if (parseInt($(schedule[i].hour).text()) === currentTime) {
-      formEl.addClass('present');
-    } if (parseInt($(schedule[i].hour).text()) > currentTime) {
-      formEl.addClass('future');
-    }
-  });
+  // $('.change').each(function() {
+  //   console.log(schedule[i].hour);
+  //   if (parseInt($(schedule[i].hour).text()) < currentTime) {
+  //     formEl.addClass('past');
+  //   } if (parseInt($(schedule[i].hour).text()) === currentTime) {
+  //     formEl.addClass('present');
+  //   } if (parseInt($(schedule[i].hour).text()) > currentTime) {
+  //     formEl.addClass('future');
+  //   }
+  // });
 
 };
+
+
+// On click, text in the textarea is saved to local storage and persist on the page despite refresh 
+
+// function to save text 
+// function saveText(event){
+//   // prevent default used bc i wrapped everything in a form tag 
+//   event.preventDefault(); 
+//   // logic that needs to run when event listener is triggered
+
+//   // reference to the object on which the event was dispatched
+//   // this event is dispatched to the text area 
+//   event.target
+
+// };
+
+
+
+$('.save-button').on('click', function(event){
+    // prevent default used bc i wrapped everything in a form tag 
+    event.preventDefault(); 
+    // define user input 
+    var userInput = $('input[name="planner-input"]');
+    console.log(userInput)
+    // logic that needs to run when event listener is triggered
+    // logic is: take value from input and set item to local storage 
+    console.log('Planner-input: ', userInput.val());
+    localStorage.setItem('userInfo' , JSON.stringify(userInput.val()));
+    // obj. to string 
+
+    // persist user input 
+    localStorage.getItem('userInfo' , userInput);
+  // traverse dom and access input value?
+    // event.target;
+});
+
+
+// // listen for save button click event
+// saveBtnEl.addEventListener('click', saveText)
+
+
 
 
