@@ -7,15 +7,15 @@ Simple day planner that allows the user to save events for each hour of the stan
 ## How it works: 
 When the user opens the day planer the current date is displayed at the top of the page. 
 
-![Header photo](assets/header.png)
+![Header photo](header.png)
 
 When the user scrolls down they are presented with time blocks for standard business hours. Each time block is color-coded to indicate whether it is in the past, present, or future. If the user clicks into a time block they can enter an event.
 
-![Body photo](assets/body.png)
+![Body photo](body.png)
 
 Subsequently, if the user hits the save button next to the event that event is then saved to local storage. 
 
-![Local storage](assets/local-storage.png) 
+![Local storage](local-storage.png) 
 
 
 Saved event(s) will persist even if the page is refreshed. 
