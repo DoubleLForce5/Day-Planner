@@ -69,7 +69,7 @@ for (let i = 0; i < schedule.length; i++) {
   formEl.addClass('change');
   timeEl.addClass('col-2 change-2');
   textAreaEl.addClass('col-8 form-input');
-  saveBtnEl.addClass('col-2 save-button' + i);
+  saveBtnEl.addClass('col-2 far fa-save fa-lg save-button' + i);
 
   // write hour to timeEl 
   timeEl.text(schedule[i].hour);
@@ -108,7 +108,7 @@ for (let i = 0; i < schedule.length; i++) {
   
   if (currentHour > schedule[i].time) {
     textAreaEl.addClass('past');
-  } if (currentHour === schedule[i].time){
+  } if (currentHour == schedule[i].time){
     textAreaEl.addClass('present')
   } if (currentHour < schedule[i].time){
     textAreaEl.addClass('future');
