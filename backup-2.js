@@ -96,11 +96,9 @@ for (let i = 0; i < schedule.length; i++) {
     // obj. to string 
     localStorage.setItem('user-input-' + i, JSON.stringify(userInput));
     // // persist user input 
+    JSON.parse(localStorage.getItem('user-input-' + i, (userInput)));
     // string to object 
     });
-
-  $('#user-input-' + i).val(JSON.parse(localStorage.getItem('user-input-' + i)));
-  console.log(JSON.parse(localStorage.getItem('user-input-' + i)))
 
   var currentHour = moment ().format('HH');
   console.log(currentHour);
