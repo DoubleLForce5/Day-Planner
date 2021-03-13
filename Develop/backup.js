@@ -52,8 +52,7 @@ var containerEl = $('.container');
 // console.log(schedule[hour])
 
 // Create/add a forum, textarea, and button for each individual time slot 
-// Tutor suggested I change var to let in this case. For some reason wih var my code won't output the items in the text field as separate line items in local storage but it will with Let
-for (let i = 0; i < schedule.length; i++) {
+for (var i = 0; i < schedule.length; i++) {
   var formEl = $('<form>');
   var timeEl = $('<div>');
   var textBlockEl = $('<div>');
@@ -74,10 +73,12 @@ for (let i = 0; i < schedule.length; i++) {
   formEl.addClass('change');
   timeEl.addClass('col-2 change-2');
   textAreaEl.addClass('col-8 form-input');
-  saveBtnEl.addClass('col-2 save-button' + i);
+  saveBtnEl.addClass('col-2 save-button');
 
   // write hour to timeEl 
   timeEl.text(schedule[i].hour);
+  // console.log(schedule[i].hour);
+
 
   // Append time, text, and save button elements to forum 
   formEl.append(timeEl);
@@ -87,25 +88,7 @@ for (let i = 0; i < schedule.length; i++) {
   // Append forum to container 
   containerEl.append(formEl);
 
-// i + added to save button to ensure that clicking one would not trigger all inputs 
-// On click, text in the textarea is saved to local storage and persist on the page despite refresh 
-  $('.save-button' + i).on('click', function(event){
-      // prevent default used bc i wrapped everything in a form tag 
-      event.preventDefault(); 
-      // define user input 
-      console.log(event.currentTarget.parentElement.childNodes[1].value)
-      var userInput = event.currentTarget.parentElement.childNodes[1].value;
-      console.log('userInfo' , userInput)
-      // logic that needs to run when event listener is triggered
-      // logic is: take value from input and set item to local storage 
-      // obj. to string 
-      localStorage.setItem('user-input-' + i, JSON.stringify(userInput));
-      // // persist user input 
-      JSON.parse(localStorage.getItem('user-input-' + i, (userInput)));
-      // string to object 
-    });
-
-      // color code blocks based on time being past, present, or in the future 
+  // color code blocks based on time being past, present, or in the future 
   // var currentTime = moment().format("hh");
 
   // $(document).ready(function() {
@@ -116,31 +99,44 @@ for (let i = 0; i < schedule.length; i++) {
   // });
 
   // $('.change').each(function() {
-  //   console.log(schedule[i].time);
-  //   if (parseInt($(schedule[i].time).text()) < currentTime) {
+  //   console.log(schedule[i].hour);
+  //   if (parseInt($(schedule[i].hour).text()) < currentTime) {
   //     formEl.addClass('past');
-  //   } if (parseInt($(schedule[i].time).text()) === currentTime) {
+  //   } if (parseInt($(schedule[i].hour).text()) === currentTime) {
   //     formEl.addClass('present');
-  //   } if (parseInt($(schedule[i].time).text()) > currentTime) {
+  //   } if (parseInt($(schedule[i].hour).text()) > currentTime) {
   //     formEl.addClass('future');
   //   }
   // });
 
-  var currentHour = moment ().format('HH');
-  console.log(currentHour);
-  console.log(schedule[i].time)
-  
-  if (currentHour > schedule[i].time) {
-    textAreaEl.addClass('past');
-  } if (currentHour === schedule[i].time){
-    textAreaEl.addClass('present')
-  } if (currentHour < schedule[i].time){
-    textAreaEl.addClass('future');
-  }
-
-
 };
 
+
+// On click, text in the textarea is saved to local storage and persist on the page despite refresh 
+$('.save-button').on('click', function(event){
+    // prevent default used bc i wrapped everything in a form tag 
+    event.preventDefault(); 
+    // define user input 
+    console.log(event.currentTarget.parentElement.childNodes[1].value)
+    var userInput = event.currentTarget.parentElement.childNodes[1].value;
+    console.log('userInfo' , userInput)
+    // logic that needs to run when event listener is triggered
+    // logic is: take value from input and set item to local storage 
+    // console.log('Planner-input: ', userInput.val());
+    // obj. to string 
+    // localStorage.setItem('userInfo' , JSON.stringify(userInput));
+    localStorage.setItem('userInput', JSON.stringify(userInput));
+    // // persist user input 
+    // localStorage.getItem('userInfo' , userInput);
+    // string to object 
+    // for (j = 0; j < schedule.length; j++) {
+    //   localStorage.setItem('user-input- ' + j, JSON.stringify(userInput));
+    // };
+});
+
+
+// // listen for save button click event
+// saveBtnEl.addEventListener('click', saveText)
 
 
 
