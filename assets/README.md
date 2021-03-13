@@ -30,4 +30,4 @@ Font Awesome
 Google Fonts 
 
 ## Link to deployed application: 
-
+https://doublelforce5.github.io/Day-Planner/
