@@ -35,6 +35,9 @@ Saved event(s) will persist even if the page is refreshed.
 ## Link to deployed application: 
 https://doublelforce5.github.io/Day-Planner/
 
+## Contact 
+Email: lopez.olivia17@outlook.com
+
 ## MIT license
 Copyright (c) 2021 Olivia Lopez 
 
