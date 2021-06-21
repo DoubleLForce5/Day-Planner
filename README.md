@@ -2,8 +2,7 @@
 
 ## Description
 
-This application allows the user to save events for each hour of the standard workday (9 AM - 5 PM). 
-The time blocks colors' changes based on whether the time is past(grey), present(red), and future(green). 
+This application allows the user to save events for each hour of the standard workday (9 AM - 5 PM).  
 
 ## Usage instructions 
 When the user opens the day planer the current date is displayed at the top of the page. 
