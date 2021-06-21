@@ -1,16 +1,17 @@
 # Day Planner 
 
-## Description:
+## Description
 
-Simple day planner that allows the user to save events for each hour of the standard workday (9 AM - 5 PM). 
+This application allows the user to save events for each hour of the standard workday (9 AM - 5 PM). 
+The time blocks colors' changes based on whether the time is past(grey), present(red), and future(green). 
 
-## How it works: 
+## Usage instructions 
 When the user opens the day planer the current date is displayed at the top of the page. 
 
 ![Header photo](assets/Header.png)
 
 
-When the user scrolls down they are presented with time blocks for standard business hours. Each time block is color-coded to indicate whether it is in the past, present, or future. If the user clicks into a time block they can enter an event.
+When the user scrolls down they are presented with time blocks for standard business hours. Each time block is color-coded to indicate whether it is in the past, present, or future. If the user clicks in a time block they can enter an event.
 
 ![Body photo](assets/Body.png)
 
@@ -20,10 +21,9 @@ Subsequently, if the user hits the save button next to the event that event is t
 ![Local storage](assets/Local-storage.png) 
 
 
-
 Saved event(s) will persist even if the page is refreshed. 
 
-## Featured tech.:
+## Tech 
 - HTML
 - CSS
 - JQuery 
@@ -32,7 +32,7 @@ Saved event(s) will persist even if the page is refreshed.
 - Font Awesome 
 - Google Fonts 
 
-## Link to deployed application: 
+## Deployed application
 https://doublelforce5.github.io/Day-Planner/
 
 ## Contact 
